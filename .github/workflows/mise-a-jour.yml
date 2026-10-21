@@ -1,0 +1,65 @@
+# Refait la page depuis le Word du Père et la publie sur GitHub Pages (21/10/2026).
+# Toutes les 5 minutes (GitHub ne garantit pas l'heure : en pratique 5 à 15 min, parfois plus aux heures chargées),
+# à chaque modification du dépôt, ou à la main (onglet Actions › Mise à jour de la page › Run workflow).
+# L'identifiant du doc est le secret DOC_ID (Settings › Secrets and variables › Actions), pour ne pas l'afficher ici.
+name: Mise à jour de la page
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    outputs:
+      change: ${{ steps.construire.outputs.change }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: construire
+        run: node construire.mjs
+        env:
+          DOC_ID: ${{ secrets.DOC_ID }}
+          SITE_URL: https://blaisedestais.github.io/PrepaMariage
+          FORCER: ${{ github.event_name != 'schedule' && '1' || '' }}
+      - if: steps.construire.outputs.change == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      # GitHub arrête les tâches planifiées d'un dépôt public sans activité depuis 60 jours : un commit vide tous
+      # les 50 jours la garde en vie si le doc ne bouge pas
+      - name: Garder la mise à jour automatique en vie
+        if: github.event_name == 'schedule'
+        run: |
+          if [ $(( $(date +%s) - $(git log -1 --format=%ct) )) -gt $((50*86400)) ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "Maintien de la mise à jour automatique"
+            git push
+          fi
+
+  publier:
+    needs: verifier
+    if: needs.verifier.outputs.change == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4
