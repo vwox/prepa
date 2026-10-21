@@ -1,6 +1,6 @@
 # Parcours en ligne de préparation au mariage — Abbaye Sainte-Marie de Lagrasse
 
-La page **https://blaisedestais.github.io/PrepaMariage/** se refait toute seule à partir du Word / Google Doc du parcours.
+La page **https://vwox.github.io/prepa/** se refait toute seule à partir du Word / Google Doc du parcours.
 
 ## Pour le Père : rien à faire de plus
 
@@ -31,11 +31,11 @@ Tout est dans ce dépôt ; demandez à Claude (Claude Code), il sait s'y retrouv
 
 - **mise en page** (couleurs, polices, ordre des blocs…) : fichier `rendu.js` ; une modification publiée ici repart en ligne en 1 à 2 minutes, et le contenu continue de venir du doc ;
 - **page écrite à la main** plutôt que tirée du doc : possible aussi, il suffit de le demander à Claude (on coupe alors le lien avec le doc) ;
-- **autres mini-sites** (WE fiancés, Cana…) : un dépôt par site, sur le même modèle, gratuit.
+- **autres mini-sites** (WE fiancés, Cana…) : un dépôt par site dans l'organisation GitHub `vwox`, sur le même modèle, gratuit ; le dépôt `vwox/cana` donne l'adresse `vwox.github.io/cana`.
 
 ## Adresse à votre nom
 
-On peut remplacer `blaisedestais.github.io/PrepaMariage` par une adresse du type `prepa.lagrasse.org` : votre webmestre ajoute dans la zone DNS de lagrasse.org un enregistrement `CNAME prepa → blaisedestais.github.io`, puis on renseigne l'adresse dans Settings › Pages › Custom domain (https automatique). Doc GitHub : [Gérer un domaine personnalisé](https://docs.github.com/fr/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+On peut remplacer `vwox.github.io/prepa` par une adresse du type `prepa.lagrasse.org` : votre webmestre ajoute dans la zone DNS de lagrasse.org un enregistrement `CNAME prepa → vwox.github.io`, puis on renseigne l'adresse dans Settings › Pages › Custom domain (https automatique). Doc GitHub : [Gérer un domaine personnalisé](https://docs.github.com/fr/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
 ## Fonctionnement (pour les curieux)
 

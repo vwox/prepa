@@ -1,6 +1,6 @@
 # AGENTS.md — PrepaMariage
 
-Page web du parcours de préparation au mariage de l'Abbaye de Lagrasse, refaite automatiquement depuis le Word / Google Doc du Père (P. Jean-Baptiste). Créé le 21/10/2026 par Blaise d'Estais ; fonctionnement détaillé dans [README.md](README.md).
+Page web du parcours de préparation au mariage de l'Abbaye de Lagrasse, refaite automatiquement depuis le Word / Google Doc du Père (P. Jean-Baptiste). Créé le 21/10/2026 par Blaise d'Estais, dans l'organisation GitHub `vwox` (nom court sans signification, choisi pour une adresse du type raccourcisseur : `vwox.github.io/<site>`) ; fonctionnement détaillé dans [README.md](README.md).
 
 ## Règles
 
