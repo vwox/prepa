@@ -16,9 +16,10 @@ Pour une grosse refonte du doc, travaillez sur une copie (Fichier › Créer une
 
 Le texte et les liens du doc sont repris tels quels ; seule la mise en page change :
 
-- couverture avec la première photo, sommaire collant en haut, chiffres clés en pastilles, pictos remplacés par des icônes ;
+- **accueil court** (retour d'Anne et Mechtilde) : couverture, chiffres clés, accroche, inscription, puis des cartes vers chaque partie ; menu collant en haut, une partie affichée à la fois : « Par où commencer ? » (le tableau : chaque ligne ouvre la liste de ses enseignements), « Pour commencer » (1er et 2e enseignements, prière, tests, entretiens), une vue par partie du Word, « À savoir » (conférenciers, citations, avantages, conseils, règles, règlement) ;
+- pictos remplacés par des icônes ;
 - un encart par enseignement, numéro en pastille ; badge « WE » pour l'astérisque (conférences des WE à Lagrasse) ;
-- **couleurs des thèmes** : chaque ligne colorée du tableau « Si vous êtes pressés… » donne sa couleur aux numéros qu'elle cite (deux thèmes = pastille bicolore) ; la couleur est celle de la ligne dans le Word, ou, si le Word n'en a pas, celle d'origine (or : théologique, bleu nuit : essentiel, vert : crises, rose : sexualité, bleu : temps et argent) ;
+- **couleurs des thèmes**, avec leur nom écrit sur chaque enseignement (« L'essentiel », « Crises »…) et une légende cliquable : chaque ligne colorée du tableau « Si vous êtes pressés… » donne sa couleur aux numéros qu'elle cite (deux thèmes = pastille bicolore) ; la couleur est celle de la ligne dans le Word, ou, si le Word n'en a pas, celle d'origine (or : théologique, bleu nuit : essentiel, vert : crises, rose : sexualité, bleu : temps et argent) ;
 - conférenciers en liste, sous le titre « Les conférenciers » ;
 - accroche « Préparer son mariage à notre époque » en capitales ;
 - citations des papes : auteur en gras, ouvrage en italique (l'italique du Word), sur une ligne à part ;
