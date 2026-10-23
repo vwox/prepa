@@ -5,7 +5,7 @@ La page **https://vwox.github.io/prepa/** se refait toute seule à partir du Wor
 ## Pour le Père : rien à faire de plus
 
 1. Vous modifiez votre Word / Google Doc comme d'habitude.
-2. La page se met à jour toute seule, en général en 5 à 15 minutes (GitHub vérifie le doc toutes les 5 minutes, sans garantie d'heure exacte).
+2. La page se met à jour toute seule, en général dans les heures qui suivent : GitHub est réglé pour vérifier le doc toutes les 5 minutes, mais espace en réalité ses tâches planifiées (mesuré les 21-23/10/2026 : une vérification toutes les 2 à 5 heures). Pour une mise à jour immédiate : onglet **Actions** du dépôt › « Mise à jour de la page » › **Run workflow** (1 minute).
 3. Si le doc est momentanément illisible (partage retiré, Google en panne), la page garde sa dernière version : elle ne disparaît jamais.
 
 Une seule condition : le doc doit être ouvert en lecture (Partager › Accès général › « Tous les utilisateurs qui ont le lien » › **Lecteur**).
@@ -39,7 +39,7 @@ On peut remplacer `vwox.github.io/prepa` par une adresse du type `prepa.lagrasse
 
 ## Fonctionnement (pour les curieux)
 
-- `.github/workflows/mise-a-jour.yml` : toutes les 5 minutes, GitHub lance `construire.mjs`.
+- `.github/workflows/mise-a-jour.yml` : réglé toutes les 5 minutes (en pratique toutes les 2 à 5 heures), à chaque modification du dépôt et à la demande (Run workflow), GitHub lance `construire.mjs`.
 - `construire.mjs` télécharge le doc (identifiant dans le secret `DOC_ID` du dépôt), compare son empreinte avec celle de la page en ligne (`version.txt`) et ne republie que si quelque chose a changé.
 - `rendu.js` transforme le Word en page web (une seule page, images intégrées).
 - Essai sur l'ordinateur : `npm ci` puis `node construire.mjs mon-fichier.docx` → `site/index.html`.
