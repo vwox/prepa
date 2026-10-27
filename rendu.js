@@ -6,6 +6,7 @@
 // Retour d'Anne et Mechtilde (21/10) : accueil court, une vue par partie, thèmes nommés sur chaque enseignement.
 import { unzipSync, strFromU8 } from 'fflate';
 import { DOMParser } from '@xmldom/xmldom';
+import { ameliorerPage } from './interface.js';
 
 const W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const R = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships';
@@ -293,7 +294,7 @@ export async function rendre(octets) {
   }
   const legende = themes.length ? `<div class="legende"><span>Thèmes :</span>${themes.map((th) =>
     `<a class="tag" style="--c:${th.couleur}" href="#choix-${th.filtre}">${esc(th.court)}</a>`).join('')}</div>` : '';
-  return { nbLiens, html: page({ titre, sousTitre, couverture, logo, vues, legende, filtres, contacts }) };
+  return { nbLiens, html: ameliorerPage(page({ titre, sousTitre, couverture, logo, vues, legende, filtres, contacts })) };
 }
 
 function page({ titre, sousTitre, couverture, logo, vues, legende, filtres, contacts }) {

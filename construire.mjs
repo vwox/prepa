@@ -31,7 +31,7 @@ try {
   process.exit(0);
 }
 
-const version = `${empreinte(octets)} ${empreinte(readFileSync(new URL('./rendu.js', import.meta.url)))}\n`;
+const version = `${empreinte(octets)} ${empreinte(Buffer.concat(['rendu.js', 'interface.js'].map((f) => readFileSync(new URL('./' + f, import.meta.url)))))}\n`;
 if (process.env.SITE_URL && !process.env.FORCER) {
   const enLigne = await fetch(`${process.env.SITE_URL.replace(/\/$/, '')}/version.txt`, { cache: 'no-store' })
     .then((r) => (r.ok ? r.text() : '')).catch(() => '');
