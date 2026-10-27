@@ -27,9 +27,9 @@ Le texte et les liens du doc sont repris tels quels ; seule la mise en page chan
 
 ## Trouver un sujet et garder ses repères
 
-Depuis le 27 octobre 2026, **Index & recherche** rassemble tous les enseignements dans une seule liste : recherche dans le texte intégral (accents facultatifs), filtres par partie et thème du document, ordre du programme ou alphabétique, affichage en liste ou avec tous les détails ouverts. Cliquer sur un enseignement ouvre son texte intégral et ses ressources. Les titres de l’index sont tirés du début de chaque enseignement ; aucun texte du Père n’est réécrit.
+Depuis le 27 octobre 2026, **Index & recherche** rassemble tous les enseignements dans une seule liste : recherche dans le texte intégral, les noms des conférenciers et le vocabulaire des questionnaires et supports (`index-ressources.json`), filtres par partie, thème et intervenant, ordre du programme ou alphabétique, affichage en liste ou avec tous les détails ouverts. Cliquer sur un enseignement ouvre son texte intégral et ses ressources. Les titres de l’index sont tirés du début de chaque enseignement ; aucun texte du Père n’est réécrit.
 
-Les boutons **À voir** et **Vu** gardent les repères dans le navigateur de l’appareil. Ils restent disponibles en revenant sur le site, mais ne se synchronisent pas avec un autre téléphone ou ordinateur. Si le navigateur refuse le stockage local, ils fonctionnent pour la visite en cours et la page le signale. Ce ne sont pas des comptes utilisateurs.
+Les boutons **À voir** et **Vu** permettent de suivre sa progression à deux ou séparément grâce au bouton **Qui regarde ?** en haut à droite (**À deux** par défaut, **Lui** ou **Elle**, également proposé lors de la première saisie du code d’accès). Ces repères restent dans le navigateur de l’appareil utilisé et ne se synchronisent pas avec un autre téléphone ou ordinateur (voir la [feuille de route V2](docs/roadmap-v2.md)).
 
 ## Inscription et code d’accès
 
