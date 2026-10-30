@@ -1,6 +1,6 @@
 # Feuille de route V2 & questions ouvertes — Parcours de préparation au mariage
 
-Mise à jour : 27 octobre 2026.
+Mise à jour : 30 octobre 2026 (contrôle des accès et précision sur l’indexation).
 
 ---
 
@@ -15,7 +15,7 @@ Mise à jour : 27 octobre 2026.
    - **Choix proposé dès la première validation du code (`3309`)** dans la fenêtre d’accès (réglé par défaut sur **À deux**), ce qui présente immédiatement la fonctionnalité aux fiancés.
    - Chacun peut ainsi conserver son propre historique (*À voir* / *Vu*) lorsqu’il écoute un topo seul, ou cocher *À deux* lorsqu’ils avancent ensemble (les étiquettes affichent *Vu à deux*, *Vu (Lui)* ou *Vu (Elle)*).
 3. **Préparation technique de l’indexation partielle (`data-nosnippet`)** :
-   - Les liens de ressources réservées et le détail déplié des fiches portent l’attribut `data-nosnippet` afin que Google n’affiche jamais les liens ou le contenu réservé dans ses extraits de recherche lorsque l’indexation publique sera ouverte.
+   - Les liens de ressources réservées et le détail déplié des fiches portent l’attribut `data-nosnippet` pour exclure ces passages des extraits Google. Cet attribut ne bloque ni leur indexation ni leur accès : il ne constitue aucune protection des ressources.
 
 ---
 
@@ -25,8 +25,8 @@ Mise à jour : 27 octobre 2026.
 - **Objectif** : faire remonter la page de présentation et d’inscription du parcours dans Google lorsqu’un couple cherche une préparation au mariage, tout en gardant les ressources réservées aux inscrits.
 - **Fonctionnement cible** (identique aux sites de presse) :
   - **Indexé par Google** : titre, accroche, présentation du parcours, liste des 22 conférenciers, titres et thèmes des 53 enseignements, et bouton d’inscription.
-  - **Non indexé / masqué par `data-nosnippet` et mire d’accès** : liens vers les vidéos, questionnaires et supports (et, demain, texte intégral des questionnaires ou transcriptions).
-- **Activation** : dès que l’emplacement définitif est arrêté avec Maxence et le Père (intégration sur `preparation-au-mariage.lagrasse.org` ou sous-domaine `prepa.lagrasse.org`), retirer `<meta name="robots" content="noindex,nofollow">` et `Disallow: /` dans `robots.txt`, et ajouter les métadonnées Schema.org (`Course`).
+  - **Réservé après contrôle serveur de l’inscription** : liens vers les vidéos, questionnaires et supports (et, demain, texte intégral des questionnaires ou transcriptions). Ne pas livrer ce contenu dans le HTML ni dans un index de recherche public. `data-nosnippet` ne retire que les extraits Google ; la mire actuelle et le code partagé ne protègent pas les URLs.
+- **Activation** : seulement après séparation effective des contenus publics et réservés, contrôle des accès directs et choix de l’emplacement définitif avec Maxence et le Père, retirer `<meta name="robots" content="noindex,nofollow">` et `Disallow: /` dans `robots.txt`, et ajouter les métadonnées Schema.org (`Course`).
 
 ### B. Inclusion des transcriptions des vidéos et de l’ensemble des questionnaires
 - **Transcriptions des 55 vidéos** : extraire les sous-titres / transcriptions complètes des vidéos YouTube pour :
@@ -46,9 +46,15 @@ Mise à jour : 27 octobre 2026.
 
 1. **Intégration directe dans le site WordPress (*Parcours en ligne*) vs site séparé** *(question de Maxence)* :
    - Maintenir deux sites distincts avec des liens croisés et deux systèmes d’accès complique la maintenance (MCO).
-   - Tout le moteur dynamique actuel (vues, *Index & recherche*, filtres, suivi *Lui / Elle / À deux*) tient en un seul fichier HTML/JS autonome : il peut être **intégré directement dans la page *Parcours en ligne* du WordPress de Lagrasse** (derrière une mire de connexion WordPress ou avec le code d’accès), sans serveur tiers à maintenir.
+   - Tout le moteur dynamique actuel (vues, *Index & recherche*, filtres, suivi *Lui / Elle / À deux*) tient en un seul fichier HTML/JS autonome : il peut être **repris dans la page *Parcours en ligne* du WordPress de Lagrasse** par un petit module optionnel (bloc ou shortcode), sans serveur de comptes supplémentaire. La connexion WordPress et l’inscription validée au parcours doivent être contrôlées côté serveur ; un simple compte ne suffit pas. Une iframe vers le site public Pages, ou le code partagé actuel, ne protège ni la page publique ni les fichiers du FTP. Pour de vrais droits d’accès, les ressources réservées doivent également être servies après ce contrôle. Les statuts précis restent à vérifier dans le code/configuration du plugin avec Maxence.
 2. **CMS directement sur GitHub (en Markdown / HTML) et/ou simplification du Google Doc** :
    - Tant que le PDF principal existait, le Google Doc / Word devait porter toute la mise en page d’impression.
    - Si le PDF principal est abandonné au profit du site, et si l’on intègre directement sur le site le contenu de tous les questionnaires, les transcriptions des vidéos et de nouvelles fonctionnalités :
      - **Option 1 (Google Doc allégé)** : garder le Google Doc uniquement pour les contenus purs (titres, résumés, liens), sans se soucier de la mise en forme Word.
      - **Option 2 (CMS Markdown / HTML sur GitHub)** : gérer les fiches d’enseignement (titre, intervenants, vidéo, support, texte des 10 questions du questionnaire, transcription) directement en Markdown ou HTML propre sur GitHub, modifiable en langage naturel avec Claude / ChatGPT ou via une interface simple.
+
+## Contrôle du 30 octobre 2026
+
+Le compte `pjean-baptiste-hub` dispose de l’écriture sur le dépôt. L’invitation en écriture de `maxence-bobin`, créée le 27 octobre, reste à accepter via https://github.com/vwox/prepa/invitations ; ne pas la renvoyer en doublon. Les comptes des couples et les inscriptions existent déjà sur WordPress : réutiliser ces données et ne pas créer une deuxième liste d’inscrits. Le Père peut continuer à déposer les sources par FTP ; migration de la diffusion et maintien de son mode d’édition sont deux décisions distinctes. Aucune migration ni installation de contrôle serveur n’a été faite lors de ce contrôle.
+
+Références : [authentification REST WordPress](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/), [shortcodes](https://developer.wordpress.org/plugins/shortcodes/), [portée de data-nosnippet](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag).
