@@ -51,7 +51,7 @@ Mise à jour : 30 octobre 2026 (contrôle des accès et précision sur l’index
    - Tant que le PDF principal existait, le Google Doc / Word devait porter toute la mise en page d’impression.
    - Si le PDF principal est abandonné au profit du site, et si l’on intègre directement sur le site le contenu de tous les questionnaires, les transcriptions des vidéos et de nouvelles fonctionnalités :
      - **Option 1 (Google Doc allégé)** : garder le Google Doc uniquement pour les contenus purs (titres, résumés, liens), sans se soucier de la mise en forme Word.
-     - **Option 2 (CMS Markdown / HTML sur GitHub)** : gérer les fiches d’enseignement (titre, intervenants, vidéo, support, texte des 10 questions du questionnaire, transcription) directement en Markdown ou HTML propre sur GitHub, modifiable en langage naturel avec Claude / ChatGPT ou via une interface simple.
+     - **Option 2 (CMS Markdown / HTML)** : gérer les fiches d’enseignement (titre, intervenants, vidéo, support, questionnaires, transcription) en Markdown ou HTML dans un stockage privé, ou dans WordPress, modifiables en langage naturel avec Claude / ChatGPT ou via une interface simple. Le dépôt de code public ne doit pas héberger les contenus réservés. Si la conversion du document continue, publier un aperçu public et transférer la version réservée à WordPress par un accès serveur privé, sans conserver une copie complète accessible sur GitHub Pages.
 
 ## Contrôle du 30 octobre 2026
 
